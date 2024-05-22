@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="uk"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Тест для початкових класів</title> 
+        <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+        }
+        .container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .question { 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }   
+        .options { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .option { 
+            margin-bottom: 10px; 
+        }
+        
+        .submit-button { 
+            font-size: 20px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+        } 
+        </style>   
+    </head> 
+    
+    <body> 
+        <div class="container"> 
+            <div class="question">Якого кольору Сонце?</div> 
+            <div class="options"> 
+                <div class="option"> 
+                    <input type="radio" id="option1" name="option" value="червоне"> 
+                    <label for="option1">Червоне</label> 
+                </div> 
+                <div class="option"> 
+                    <input type="radio" id="option2" name="option" value="жовте"> 
+                    <label for="option2">Жовте</label> 
+                </div> 
+                <div class="option"> 
+                    <input type="radio" id="option3" name="option" value="синє"> 
+                    <label for="option3">Синє</label> 
+                </div> 
+            </div> 
+            
+            <button class="submit-button" onclick="checkAnswer()">Перевірити</button> 
+            <div id="result" class="result"></div> 
+        </div> 
+        
+        <script> 
+        function checkAnswer() { 
+            const selectedOption = document.querySelector('input[name="option"]:checked').value; 
+            let resultText; 
+            if (selectedOption === 'жовте') { 
+                resultText = 'Вірно! Сонце жовте.'; 
+            } else { 
+                resultText = 'На жаль, відповідь не вірна. Сонце жовте.'; 
+            } showResult(resultText); 
+        }
+        function showResult(text) { 
+            const resultElement = document.getElementById('result'); 
+            resultElement.textContent = text; 
+            } 
+        </script>
+    
+    </body> 
+</html>
